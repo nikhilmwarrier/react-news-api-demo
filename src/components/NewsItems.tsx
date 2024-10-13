@@ -10,6 +10,7 @@ const NewsItems = () => {
   const [loading, setLoading] = useState(true);
   const [category, setCategory] = useState<NewsCategory>("general");
   const [error, setError] = useState(false);
+  const [retries, setRetries] = useState(0)
 
   useEffect(() => {
     setLoading(true);
@@ -47,6 +48,7 @@ const NewsItems = () => {
         filteredArticles.splice(filteredArticles.length - 1 - excess, excess);
 
         setArticles([heroArticle, ...filteredArticles]);
+        setError(false)
       } catch (error) {
         console.log(`Error: ${error}`);
         setError(true);
@@ -56,7 +58,7 @@ const NewsItems = () => {
     };
 
     getHeadlines();
-  }, [category]);
+  }, [category, retries]);
 
   return (
     <div className="max-w-screen-xl mx-auto min-h-screen">
@@ -65,7 +67,10 @@ const NewsItems = () => {
       {loading ? (
         <h3 className="font-6xl text-center">Loading...</h3>
       ) : error ? (
-        <p>An error occured :-/</p>
+          <div className="rounded bg-red-300 w-fit m-auto p-4">
+            <p className="text-red-950 text-xl">An error occured while trying to fetch articles.</p>
+            <button className="px-4 py-2 mt-4 rounded block mx-auto text-xl text-white  bg-red-950" onClick={() => setRetries(curr => curr + 1)}>Try again</button>
+        </div>
       ) : (
         <>
           <div className="grid lg:grid-cols-5 pb-6 gap-6 mb-12 border-b-2 border-gray-200">
