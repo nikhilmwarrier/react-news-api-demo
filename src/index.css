@@ -3,46 +3,27 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-200 font-serif;
+  @apply font-serif;
 }
 
-a {
-  @apply text-teal-700;
+.tag-button {
+  @apply px-3 py-1 mx-2 hover:bg-gray-200 rounded;
 }
 
-/* * {
-  box-sizing: border-box;
+.link {
+  @apply text-cyan-900 hover:text-cyan-600 cursor-pointer;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-  min-width: 100%;
-  background: #ddd;
+.newspaper-grid {
+  /* Define the element as a grid container */
+  display: grid;
+  /* Auto-fit as many items on a row as possible without going under 40ch */
+  grid-template-columns: repeat(auto-fit, minmax(40ch, 1fr));
+  /* A little spacing between articles */
+  grid-gap: 1em;
+  grid-auto-flow: dense;
 }
 
-h1 {
-  text-align: center;
+.newspaper-grid :nth-child(1) {
+  grid-column: span 2;
 }
-
-.news-section {
-  background: #fff;
-  padding: 1rem;
-  width: auto;
-  max-width: 90%;
-  margin: auto;
-
-  columns: 2;
-  gap: 1.5rem;
-}
-
-.article {
-  margin: auto;
-  margin-top: 1rem;
-}
-
-.article img {
-  width: 100%;
-} */
