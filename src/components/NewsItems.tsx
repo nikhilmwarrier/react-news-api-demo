@@ -31,6 +31,7 @@ const NewsItems = () => {
         {loading ? (
           <h3>Loading...</h3>
         ) : (
+          /* Only show articles that are not [Removed] */
           articles.filter(article => article.title !== '[Removed]').map(article => <NewsArticle article={article} />)
         )}
       </section>
