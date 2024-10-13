@@ -24,6 +24,9 @@ const NewsItems = () => {
             },
           }
         );
+        if (!response.ok) {
+          if (response.status === 401) throw new Error("HTTP 401: Unauthorized")
+        }
         const data = (await response.json()) as TopHeadlines;
         console.log(data.articles);
 
@@ -50,7 +53,7 @@ const NewsItems = () => {
         setArticles([heroArticle, ...filteredArticles]);
         setError(false)
       } catch (error) {
-        console.log(`Error: ${error}`);
+        console.error(error);
         setError(true);
       } finally {
         setLoading(false);
@@ -93,7 +96,7 @@ const NewsItems = () => {
             style={{ gap: "1px" }}
           >
             {articles.slice(9).map(article => (
-              <NewsImageCard article={article} />
+              <NewsImageCard key={article.title} article={article} />
             ))}
           </div>
         </>

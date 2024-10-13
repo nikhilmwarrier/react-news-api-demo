@@ -6,7 +6,7 @@ const LatestHeadlines = ({ articles, className }: { articles: Article[], classNa
       <h2 className="text-3xl mb-3">Latest headlines</h2>
       <ul role="list">
         {articles.map(article => (
-          <li className="text-xl my-3 list-inside">
+          <li key={ article.title } className="text-xl my-3 list-inside">
             <a href={article.url} className="link">{article.title}</a>
           </li>
         ))}
