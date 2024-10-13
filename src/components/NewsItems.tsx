@@ -1,4 +1,4 @@
-import { Dispatch, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Article, NewsCategory, TopHeadlines } from "../types";
 import NewsArticle from "./NewsArticle";
 import LatestHeadlines from "./LatestHeadlines";
@@ -52,7 +52,7 @@ const NewsItems = () => {
   }, [category]);
 
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto min-h-screen">
       <CategorySelector category={category} setCategory={setCategory} />
 
       {loading ? (
