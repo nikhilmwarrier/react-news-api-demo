@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-200 font-serif;
+}
+
+a {
+  @apply text-teal-700;
+}
+
+/* * {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  min-width: 100%;
+  background: #ddd;
+}
+
+h1 {
+  text-align: center;
+}
+
+.news-section {
+  background: #fff;
+  padding: 1rem;
+  width: auto;
+  max-width: 90%;
+  margin: auto;
+
+  columns: 2;
+  gap: 1.5rem;
+}
+
+.article {
+  margin: auto;
+  margin-top: 1rem;
+}
+
+.article img {
+  width: 100%;
+} */
